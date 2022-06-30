@@ -1,9 +1,16 @@
+import java.util.Properties
+
 plugins {
     kotlin("multiplatform") version "1.7.10"
+    `maven-publish`
 }
 
 group = "com.tomuvak.weak-reference"
 version = "0.0.1-SNAPSHOT"
+
+val localProperties = Properties()
+project.rootProject.file("local.properties").takeIf { it.canRead() }?.inputStream()?.let(localProperties::load)
+fun local(key: String): String? = localProperties.getProperty(key)
 
 repositories {
     mavenCentral()
@@ -48,5 +55,19 @@ kotlin {
         val jsTest by getting
         val nativeMain by getting
         val nativeTest by getting
+    }
+}
+
+local("githubRepository")?.let { githubRepository ->
+    publishing {
+        repositories {
+            maven {
+                url = uri("https://maven.pkg.github.com/$githubRepository")
+                credentials {
+                    username = local("githubUser")
+                    password = local("githubToken")
+                }
+            }
+        }
     }
 }
