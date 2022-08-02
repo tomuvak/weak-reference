@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.tomuvak.weak-reference"
-version = "0.0.1"
+version = "0.0.2-SNAPSHOT"
 
 val localProperties = Properties()
 project.rootProject.file("local.properties").takeIf { it.canRead() }?.inputStream()?.let(localProperties::load)
