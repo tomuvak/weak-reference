@@ -1,7 +1,7 @@
 package com.tomuvak.weakReference
 
 import com.tomuvak.testing.coroutines.asyncTest
-import com.tomuvak.testing.gc.tryToAchieveByForcingGc
+import com.tomuvak.testing.gc.core.tryToAchieveByForcingGc
 import kotlinx.coroutines.coroutineScope
 import kotlin.test.*
 
