@@ -2,7 +2,6 @@ package com.tomuvak.weakReference
 
 import com.tomuvak.testing.coroutines.asyncTest
 import com.tomuvak.testing.gc.core.tryToAchieveByForcingGc
-import kotlinx.coroutines.coroutineScope
 import kotlin.test.*
 
 class WeakReferenceTest {
@@ -19,5 +18,5 @@ class WeakReferenceTest {
     private suspend fun WeakReference<Any>.assertTargetNotReclaimable() = assertFalse(targetIsReclaimable())
     private suspend fun WeakReference<Any>.assertTargetReclaimable() = assertTrue(targetIsReclaimable())
     private suspend fun WeakReference<Any>.targetIsReclaimable(): Boolean =
-        coroutineScope { tryToAchieveByForcingGc { targetOrNull == null } }
+        tryToAchieveByForcingGc { targetOrNull == null }
 }

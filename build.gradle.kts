@@ -54,7 +54,6 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 implementation("com.tomuvak.testing-coroutines:testing-coroutines:0.0.1")
                 implementation("com.tomuvak.testing-gc-core:testing-gc-core:0.0.3")
             }
