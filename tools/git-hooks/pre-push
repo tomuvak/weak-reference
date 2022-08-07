@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
 
+set -e
+
 tools/ensure-working-tree-clean || (echo "Working tree isn't clean!"; exit 1)
+./gradlew check
