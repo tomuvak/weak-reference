@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+cp tools/git-hooks/* .git/hooks
