@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+T=$(git diff --cached -U0 | grep -E "^\\+.*(todo|Todo|ToDo|TODO|print|mavenLocal)")
+if [[ ! -z "$T" ]]; then
+  echo "Changes include what looks like WIP code that should not be committed; aborting commit." \
+       "(Commit with --no-verify or -n to override.)"
+  exit 1
+fi
