@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+tools/ensure-working-tree-clean || (echo "Working tree isn't clean!"; exit 1)
